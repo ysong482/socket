@@ -1,8 +1,3 @@
-Name: Yu Song
-USC ID: 1198408112
-Net ID:ysong482
-Course: ee450
-Session 2
 My program can be run without error in Ubuntu 18.04, but some errors may occur on the end server on Ubuntu 16.04. The socket function is working well.
 Client program: In my program, I collect the input value as a string value, and combine them into a large string with space. For example, the user id is 23, and the country name is XyZ. My large string with space will be “XyZ 23”. Transfer this string into char[] and send it to the Main server. The print message will be edited by the main server and end server. The client program only needs to put the char[] on the screen.
 Main server program: when I boot up my main problem, my main server program will send a request to the end server to request the country list. The country list will be stored as a long string with space. For example, ”XyZ aaa fqewA”. The request is also a string with space ”REQUEST LIST”. Due to the client only sends one string and one int. The end server will easily distinguish the request for the country list from the main server with the client request. When the client sends the request “XyZ 23”, this request will break into pieces and stored in a vector(res). Res[0] is XyZ and res[1] is 23. Res[0] will be sent to a function to find whether it appears in the country list string. If it appears in the country list string from end server A, the client request string “XyZ 23” will be sent to end server A. If it appears in the list from B, the request will be sent to end server B. if we cannot find a country in both, we will send a message to the client “country not found”. When the main server received the answer from the end server, it will send back to the client directly.
